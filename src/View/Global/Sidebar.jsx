@@ -1,4 +1,4 @@
-import { Avatar, Box, IconButton, List, ListItem, ListItemButton, ListItemIcon, ListItemText, styled, Typography, useTheme } from "@mui/material"
+import { Avatar, Box, IconButton, styled, Typography, useTheme } from "@mui/material"
 import { tokens } from "../../theme";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import PeopleOutlinedIcon from "@mui/icons-material/PeopleOutlined";
@@ -13,8 +13,8 @@ import TimelineOutlinedIcon from "@mui/icons-material/TimelineOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 
 
 
@@ -48,6 +48,17 @@ function Sidebar() {
 
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+
+  // To track the current active route & higlight it accordingly
+  const loc = useLocation();
+
+  useEffect(()=> {
+    const route = loc.pathname;
+    const routeIndex = sideBarLinksArray.findIndex((item) => item.link === route);
+    if(routeIndex !== -1){
+      setTrack(routeIndex);
+    }
+  }, [loc])
 
   // Toggle to collapse/expand the sidebar
   const[isCollapsed, setIsCollapsed] = useState("block");

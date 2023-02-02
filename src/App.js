@@ -1,10 +1,14 @@
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { Route, Routes } from "react-router-dom";
 import { ColorModeContext, useMode } from "./theme";
+import BarChartMain from "./View/BarChartMain/BarChartMain";
 import Dashboard from "./View/Dashboard/Dashboard";
-import Form from "./View/Form/Form";
+import Faq from "./View/FAQ/Faq";
 import Sidebar from "./View/Global/Sidebar";
 import Topbar from "./View/Global/Topbar";
+import LineChartMain from "./View/LineChartMain.jsx/LineChartMain";
+import PieChartMain from "./View/PieChartMain/PieChartMain";
+import ProfileForm from "./View/ProfileForm/ProfileForm";
 
 
 function App() {
@@ -21,7 +25,11 @@ function App() {
             {/* routes */}
             <Routes>
               <Route path="/" element={<Dashboard />} />
-              <Route path="/form" element={<Form />} />
+              <Route path="/form" element={<ProfileForm />} />
+              <Route path="/faq" element={<Faq />} />
+              <Route path="/bar" element={<BarChartMain />} />
+              <Route path="/pie" element={<PieChartMain />} />
+              <Route path="/line" element={<LineChartMain />} />
             </Routes>
           </div>
         </div>

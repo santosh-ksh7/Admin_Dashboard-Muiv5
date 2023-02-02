@@ -1,5 +1,7 @@
 body {
   margin: 0;
+  width: 100%;
+  height: calc(100% - 2px);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -12,14 +14,16 @@ body {
   display: flex;
   margin: 2px;
   padding: 2px;
-  gap: 10px
+  gap: 10px;
+  width: calc(100% - 4px);
+  height: calc(100% - 4px);
 }
 
+
+
 html,
-body,
-#root,
-.app,
-.content{
+#root
+{
   width: 100%;
-  height: 100%
+  height: 100%;
 }
