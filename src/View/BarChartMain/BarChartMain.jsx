@@ -9,7 +9,7 @@ function BarChartMain() {
         <Typography variant="h6">Bar Chart</Typography>
         <Typography variant="body2" sx={{marginBottom: "20px"}}>Visualize your data</Typography>
         <Box sx={{height: "75vh"}}>
-            <BarChart />
+            <BarChart smallView="false" />
         </Box>
     </MyParentWrapper>
   )

@@ -4,7 +4,7 @@ import { mockBarData as data } from '../AppData/mockData'
 import { tokens } from '../theme';
 
 
-function BarChart() {
+function BarChart({smallView}) {
 
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
@@ -83,7 +83,7 @@ function BarChart() {
         tickSize: 5,
         tickPadding: 5,
         tickRotation: 0,
-        legend: "country", 
+        legend: smallView ? undefined : "country", 
         legendPosition: "middle",
         legendOffset: 32,
       }}
@@ -91,7 +91,7 @@ function BarChart() {
         tickSize: 5,
         tickPadding: 5,
         tickRotation: 0,
-        legend: "food", 
+        legend: smallView ? undefined : "food", 
         legendPosition: "middle",
         legendOffset: -40,
       }}

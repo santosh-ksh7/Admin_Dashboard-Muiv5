@@ -3,7 +3,7 @@ import { useTheme } from "@mui/material";
 import { mockLineData as data } from "../AppData/mockData";
 import { tokens } from "../theme";
 
-const LineChart = ({ isCustomLineColors = false, isDashboard = false }) => {
+const LineChart = ({smallView}) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
 
@@ -43,7 +43,7 @@ const LineChart = ({ isCustomLineColors = false, isDashboard = false }) => {
           },
         },
       }}
-      margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
+      margin={{ top: 30, right: 110, bottom: 50, left: 60 }}
       xScale={{ type: "point" }}
       yScale={{
         type: "linear",
@@ -61,7 +61,7 @@ const LineChart = ({ isCustomLineColors = false, isDashboard = false }) => {
         tickSize: 0,
         tickPadding: 5,
         tickRotation: 0,
-        legend: "transportation",
+        legend: smallView ? undefined : "transportation",
         legendOffset: 36,
         legendPosition: "middle",
       }}
@@ -71,7 +71,7 @@ const LineChart = ({ isCustomLineColors = false, isDashboard = false }) => {
         tickSize: 3,
         tickPadding: 5,
         tickRotation: 0,
-        legend: "count",
+        legend: smallView ? undefined : "count",
         legendOffset: -40,
         legendPosition: "middle",
       }}

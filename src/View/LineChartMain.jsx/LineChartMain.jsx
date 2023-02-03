@@ -9,7 +9,7 @@ function LineChartMain() {
           <Typography variant="h6">Line Chart</Typography>
           <Typography variant="body2" sx={{marginBottom: "20px"}}>Visualize your data</Typography>
           <Box sx={{height: "75vh"}}>
-              <LineChart />
+              <LineChart smallView="false" />
           </Box>
       </MyParentWrapper>
     )
