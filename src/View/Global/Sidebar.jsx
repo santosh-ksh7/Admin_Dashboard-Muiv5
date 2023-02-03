@@ -49,7 +49,7 @@ function Sidebar() {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
 
-  // To track the current active route & higlight it accordingly
+  // To track the current active route & higlight it accordingly by tracking the URL of the page & using useLocation hook from react-router-dom
   const loc = useLocation();
 
   useEffect(()=> {
@@ -144,7 +144,7 @@ function Sidebar() {
       </MyAdminInfo>
       {/* Sidebar navigation links as a list */}
       <MyLinksParentWrapper>
-        {sideBarLinksArray.map((ele, index) => <LinksChild key={index} index={index} obj={ele} isCollapsed={isCollapsed} colors={colors} track={track} setTrack={setTrack} />)}
+        {sideBarLinksArray.map((ele, index) => <LinksChild key={index} index={index} obj={ele} isCollapsed={isCollapsed} colors={colors} track={track} />)}
       </MyLinksParentWrapper>
   </SideBarWrapper>
   )
@@ -154,7 +154,7 @@ export default Sidebar
 
 
 
-function LinksChild({obj, isCollapsed, colors, track, setTrack, index}){
+function LinksChild({obj, isCollapsed, colors, track, index}){
 
   const navigate = useNavigate();
 
@@ -183,7 +183,6 @@ function LinksChild({obj, isCollapsed, colors, track, setTrack, index}){
 
   const trackSelectedOption = () => {
     navigate(obj.link);
-    setTrack(index);
   }
 
   return(
