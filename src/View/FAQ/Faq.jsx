@@ -9,77 +9,50 @@ function Faq() {
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
 
+    const accordionArray = [
+        {
+            summary: "An Important Question",
+            details: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget."
+        },
+        {
+            summary: "Another Important Question",
+            details: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget."
+        },
+        {
+            summary: "Your Favorite Question",
+            details: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget."
+        },
+        {
+            summary: "Some Random Question",
+            details: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget."
+        },
+        {
+            summary: "The Final Question",
+            details: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget."
+        }
+    ]
+
   return (
     <MyParentWrapper>
         <Typography variant="h6">FAQ's</Typography>
         <Typography variant="body2" sx={{marginBottom: "20px"}}>Frequently Asked Questions</Typography>
-        <Accordion defaultExpanded>
-            <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                <Typography color={colors.greenAccent[500]} variant="body1">
-                    An Important Question
-                </Typography>
-            </AccordionSummary>
-            <AccordionDetails>
-                <Typography variant="body2">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-                    malesuada lacus ex, sit amet blandit leo lobortis eget.
-                </Typography>
-            </AccordionDetails>
-        </Accordion>
-        <Accordion >
-            <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-            <Typography color={colors.greenAccent[500]} variant="body1">
-                Another Important Question
-            </Typography>
-            </AccordionSummary>
-            <AccordionDetails>
-                <Typography variant="body2">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-                malesuada lacus ex, sit amet blandit leo lobortis eget.
-            </Typography>
-            </AccordionDetails>
-        </Accordion>
-        <Accordion >
-            <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                <Typography color={colors.greenAccent[500]} variant="body1">
-                    Your Favorite Question
-                </Typography>
-            </AccordionSummary>
-            <AccordionDetails>
-                <Typography variant="body2">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-                malesuada lacus ex, sit amet blandit leo lobortis eget.
-            </Typography>
-            </AccordionDetails>
-        </Accordion>
-        <Accordion >
-            <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                <Typography color={colors.greenAccent[500]} variant="body1">
-                    Some Random Question
-                </Typography>
-            </AccordionSummary>
-            <AccordionDetails>
-                <Typography variant="body2">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-                malesuada lacus ex, sit amet blandit leo lobortis eget.
-            </Typography>
-            </AccordionDetails>
-        </Accordion>
-        <Accordion >
-            <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                <Typography color={colors.greenAccent[500]} variant="body1">
-                    The Final Question
-                </Typography>
-            </AccordionSummary>
-            <AccordionDetails>
-                <Typography variant="body2">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-                malesuada lacus ex, sit amet blandit leo lobortis eget.
-                </Typography>
-            </AccordionDetails>
-        </Accordion>
+        {accordionArray.map((ele,index) => <MyAccordion obj={ele} key={index} colors={colors} />)}
     </MyParentWrapper>
   )
 }
 
 export default Faq
+
+
+function MyAccordion({obj, colors}){
+    return(
+        <Accordion >
+            <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                <Typography color={colors.greenAccent[500]} variant="body1">{obj.summary}</Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+                <Typography variant="body2">{obj.details}</Typography>
+            </AccordionDetails>
+        </Accordion>
+    )
+}
